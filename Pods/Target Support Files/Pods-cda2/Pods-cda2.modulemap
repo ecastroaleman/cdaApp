@@ -1,0 +1,6 @@
+framework module Pods_cda2 {
+  umbrella header "Pods-cda2-umbrella.h"
+
+  export *
+  module * { export * }
+}
