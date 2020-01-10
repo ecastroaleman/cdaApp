@@ -63,7 +63,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnIngresar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MD6-u4-j24"/>
-                                    <segue destination="4nf-tt-rQb" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="U2N-QF-6fO"/>
+                                    <segue destination="4nf-tt-rQb" kind="presentation" identifier="menuPrincipal" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="U2N-QF-6fO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j4-Il-RQK">

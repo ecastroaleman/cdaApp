@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var usuario: UITextField!
     @IBOutlet weak var btnIngresar: UIButton!
     @IBOutlet weak var background: UIImageView!
+    let networkingService = NetworkingService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -60,10 +62,45 @@ class ViewController: UIViewController {
         
         if (usuario.text!.isEmpty){
             muestraAlerta(pTitulo: "Alerta", pMensaje: "Debe ingresar su usuario", pAction: "Aceptar")
+        }else {
+            muestraAlerta(pTitulo: "Alerta", pMensaje: "haciendo POST", pAction: "Aceptar")
+            print("usuario: "+usuario.text!)
+            print("Clave: "+password.text!)
+            let parameters = ["username": usuario.text!, "password": password.text!,"grant_type":"password"]
+            
+            networkingService.request(endpoint: "token", parameters: parameters as [String : Any]) { [weak self] (result) in
+                switch result {
+                case .success(let user): self?.performSegue(withIdentifier: "menuPrincipal", sender: user)
+                print(user.access_token)
+                case .failure( _):
+                    //guard let alert = self?.alertService.alert(message: error.localizedDescription) else { return }
+                   // self?.present(alert, animated: true)
+                    self!.muestraAlerta(pTitulo: "Alerta", pMensaje: "Error WS ", pAction: "Aceptar")
+                }
+            }
+            
+            /*
+            let message = Message(message: "username=c206&password=aleman&grant_type=password")
+            let postRequest = APIRequest(endpoint: "messages")
+            postRequest.save(message, completion: {
+                result in switch result {
+                case .success(let message):
+                    print("The following message has been sent \(message.message)")
+                case .failure(let error):
+                    print ("An error ocurred \(error)")
+                }
+                
+            })*/
         }
+        
+        
       
     }
-    
+  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+   //     if let mainAppVC = segue.destination as? MenuPrincipal, let user = sender as? User {
+    //        mainAppVC.user = user
+     //   }
+   // }
 }
 
 // Inicio Codigo para PickerView
