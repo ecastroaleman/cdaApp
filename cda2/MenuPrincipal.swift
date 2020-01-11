@@ -15,6 +15,7 @@ class MenuPrincipal: UIViewController {
      var imgArr = [UIImage(named: "imag1"), UIImage(named: "imag2"), UIImage(named: "imag3")]
     var timer = Timer()
      var counter = 0
+    var token = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +25,7 @@ class MenuPrincipal: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
+        print("El token obtenido es:"+token)
     }
     
     @objc func changeImage() {

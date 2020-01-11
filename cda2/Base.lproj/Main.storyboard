@@ -63,7 +63,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnIngresar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MD6-u4-j24"/>
-                                    <segue destination="4nf-tt-rQb" kind="presentation" identifier="menuPrincipal" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="U2N-QF-6fO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j4-Il-RQK">
@@ -76,7 +75,7 @@
                                 <color key="textColor" red="0.51759970190000004" green="0.51767736669999997" blue="0.51758271460000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U7S-Sl-5RW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aleman" borderStyle="roundedRect" placeholder="Ingrese contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U7S-Sl-5RW">
                                 <rect key="frame" x="328" y="646" width="258" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="pIT-Xf-sHh"/>
@@ -162,6 +161,7 @@
                         <outlet property="password" destination="U7S-Sl-5RW" id="bO0-y9-j7Q"/>
                         <outlet property="tipoAut" destination="z9s-vG-Emh" id="Tvs-lQ-2Gr"/>
                         <outlet property="usuario" destination="bCq-Sb-dbc" id="Wnp-Fp-Uvy"/>
+                        <segue destination="4nf-tt-rQb" kind="presentation" identifier="menuPrincipal" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="2gn-B2-6xl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -255,7 +255,6 @@
                             <constraint firstItem="XZ0-m7-rDb" firstAttribute="bottom" secondItem="7ci-Pv-auJ" secondAttribute="bottom" constant="-4" id="BxN-MA-2Gk"/>
                             <constraint firstItem="A4j-Lb-o1Q" firstAttribute="bottom" secondItem="BXE-bl-n5q" secondAttribute="bottom" id="E6c-rp-7Qi"/>
                             <constraint firstItem="7ci-Pv-auJ" firstAttribute="leading" secondItem="TkG-cz-pWp" secondAttribute="leading" id="FoS-hE-t32"/>
-                            <constraint firstItem="A4j-Lb-o1Q" firstAttribute="trailing" secondItem="BXE-bl-n5q" secondAttribute="trailing" id="GJL-1S-JOW"/>
                             <constraint firstItem="B8T-oa-2uV" firstAttribute="trailing" secondItem="BXE-bl-n5q" secondAttribute="trailing" constant="-20" id="Hcz-2y-hcV"/>
                             <constraint firstItem="ujA-Br-GiT" firstAttribute="centerY" secondItem="TkG-cz-pWp" secondAttribute="centerY" id="Ilj-VM-la4"/>
                             <constraint firstItem="XZ0-m7-rDb" firstAttribute="centerX" secondItem="b73-wK-Iro" secondAttribute="centerX" id="M2J-XQ-hj5"/>
@@ -265,7 +264,6 @@
                             <constraint firstItem="ujA-Br-GiT" firstAttribute="top" secondItem="TkG-cz-pWp" secondAttribute="bottom" constant="-52" id="YOj-0v-rSo"/>
                             <constraint firstItem="7ci-Pv-auJ" firstAttribute="trailing" secondItem="BXE-bl-n5q" secondAttribute="trailing" constant="26" id="aDh-D7-FTX"/>
                             <constraint firstItem="7ci-Pv-auJ" firstAttribute="width" secondItem="TkG-cz-pWp" secondAttribute="width" multiplier="1.03357" constant="-2" id="bQW-4g-hnr"/>
-                            <constraint firstItem="BXE-bl-n5q" firstAttribute="leading" secondItem="A4j-Lb-o1Q" secondAttribute="leading" id="bRv-gb-gBe"/>
                             <constraint firstItem="B8T-oa-2uV" firstAttribute="bottom" secondItem="TkG-cz-pWp" secondAttribute="bottom" constant="-8" id="eTQ-VX-t1a"/>
                             <constraint firstItem="A4j-Lb-o1Q" firstAttribute="trailing" secondItem="TkG-cz-pWp" secondAttribute="trailing" id="ggv-QA-B3F"/>
                             <constraint firstItem="B8T-oa-2uV" firstAttribute="top" secondItem="TkG-cz-pWp" secondAttribute="top" constant="2" id="hIL-10-gvB"/>

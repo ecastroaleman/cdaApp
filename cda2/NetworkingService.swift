@@ -61,8 +61,8 @@ class NetworkingService {
                 
                 if let unwrappedData = data {
                     do {
-                        let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-                        print (json)
+                       // let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
+                      // print (json)
                         
                         if let user = try? JSONDecoder().decode(User.self, from: unwrappedData){
                             completion(.success(user))

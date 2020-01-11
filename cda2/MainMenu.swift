@@ -20,6 +20,7 @@ class MainMenu: UIViewController {
     
     var timer = Timer()
     var counter = 0
+    var token = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()

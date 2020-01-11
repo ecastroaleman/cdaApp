@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 //Variables
     private let dataSourceTipo = ["Familia","Maestro"]
     var TipoAutSelect: String?
+    var token = "";
     
 //Referencias
     @IBOutlet weak var tipoAut: UIPickerView!
@@ -21,7 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnIngresar: UIButton!
     @IBOutlet weak var background: UIImageView!
     let networkingService = NetworkingService()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
    
     }
-
+    
     func createTipoAutSelect(){
           let tipoAutSelec = UIPickerView()
           tipoAutSelec.delegate = self
@@ -62,46 +62,45 @@ class ViewController: UIViewController {
         
         if (usuario.text!.isEmpty){
             muestraAlerta(pTitulo: "Alerta", pMensaje: "Debe ingresar su usuario", pAction: "Aceptar")
+        }else if (password.text!.isEmpty) {
+             muestraAlerta(pTitulo: "Alerta", pMensaje: "Debe ingresar su contraseña", pAction: "Aceptar")
         }else {
-            muestraAlerta(pTitulo: "Alerta", pMensaje: "haciendo POST", pAction: "Aceptar")
-            print("usuario: "+usuario.text!)
-            print("Clave: "+password.text!)
+            
+            
             let parameters = ["username": usuario.text!, "password": password.text!,"grant_type":"password"]
             
             networkingService.request(endpoint: "token", parameters: parameters as [String : Any]) { [weak self] (result) in
                 switch result {
-                case .success(let user): self?.performSegue(withIdentifier: "menuPrincipal", sender: user)
-                print(user.access_token)
-                case .failure( _):
-                    //guard let alert = self?.alertService.alert(message: error.localizedDescription) else { return }
-                   // self?.present(alert, animated: true)
-                    self!.muestraAlerta(pTitulo: "Alerta", pMensaje: "Error WS ", pAction: "Aceptar")
-                }
-            }
-            
-            /*
-            let message = Message(message: "username=c206&password=aleman&grant_type=password")
-            let postRequest = APIRequest(endpoint: "messages")
-            postRequest.save(message, completion: {
-                result in switch result {
-                case .success(let message):
-                    print("The following message has been sent \(message.message)")
+                    
+                case .success(let user):
+                    self!.token = user.access_token
+                    self?.performSegue(withIdentifier: "menuPrincipal", sender: user)
                 case .failure(let error):
-                    print ("An error ocurred \(error)")
+                    var retorno = ""
+                    if (error.localizedDescription == "invalid_grant"){
+                        retorno = "Usuario y Password Invalidos"
+                    }else {retorno = error.localizedDescription}
+                    
+                    self!.muestraAlerta(pTitulo: "Alerta", pMensaje: retorno, pAction: "Aceptar")
+                    return
                 }
                 
-            })*/
-        }
+            }//fin networking
+                     
+        } //fin else
         
-        
-      
-    }
-  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-   //     if let mainAppVC = segue.destination as? MenuPrincipal, let user = sender as? User {
-    //        mainAppVC.user = user
-     //   }
-   // }
+    } //fin btn_Ingresar
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
+         
+         if segue.identifier == "menuPrincipal" {
+         let vc = segue.destination as! MenuPrincipal
+             vc.token = token
+         }
+     }
 }
+
+
 
 // Inicio Codigo para PickerView
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -118,11 +117,11 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
        TipoAutSelect = dataSourceTipo[row]
        
-   /*     if (TipoAutSelect == "Maestro"){
-            btnRecuperaClave.isHidden = false
+        if (TipoAutSelect == "Maestro"){
+            olvidoPassword.isHidden = false
         }else {
-            btnRecuperaClave.isHidden = true
-        }*/
+            olvidoPassword.isHidden = true
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
