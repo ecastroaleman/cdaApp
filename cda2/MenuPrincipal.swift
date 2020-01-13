@@ -8,11 +8,14 @@
 
 import UIKit
 
-class MenuPrincipal: UIViewController {
+class MenuPrincipal: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
      var imgArr = [UIImage(named: "imag1"), UIImage(named: "imag2"), UIImage(named: "imag3")]
+    let itemMenu = ["bus","cafeteria","uniformes"]
+    let itemLabelMenu = ["Cambio de Bus","Pedido Cafeteria","Pedido Uniformes"]
     var timer = Timer()
      var counter = 0
     var token = ""
@@ -26,6 +29,9 @@ class MenuPrincipal: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         print("El token obtenido es:"+token)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     @objc func changeImage() {
@@ -81,4 +87,33 @@ extension MenuPrincipal: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
+    
+    //table view
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemMenu.count
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "customCell")as! customTableViewCell
+       // cell2.cellView.layer.cornerRadius = cell2.cellView.frame.height / 2
+        cell2.itemLabel.text = itemLabelMenu[indexPath.row]
+        cell2.itemImage.image = UIImage(named: itemMenu[indexPath.row])
+        
+        cell2.itemImage.layer.cornerRadius = cell2.itemImage.frame.height / 2
+        return cell2
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "customCell")as! customTableViewCell
+        let cellBackground = UIView()
+              cellBackground.backgroundColor = UIColor(white: 146/255, alpha: 1)
+
+        cell2.selectedBackgroundView = cellBackground
+    }
+
 }
