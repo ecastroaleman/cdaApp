@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-oO-ehn">
+                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tex-oO-ehn">
                                 <rect key="frame" x="0.0" y="88" width="414" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="7MN-mn-JTt"/>
@@ -49,10 +49,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOA-FJ-x2T">
+                            <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOA-FJ-x2T">
                                 <rect key="frame" x="0.0" y="399" width="414" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="q9c-QH-Yhh"/>
+                                </constraints>
+                            </pickerView>
+                            <pickerView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="bse-m4-fMW">
+                                <rect key="frame" x="0.0" y="527" width="414" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Olf-OW-DkW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="oZV-1g-6yb"/>
                                 </constraints>
                             </pickerView>
                         </subviews>
@@ -66,13 +73,17 @@
                             <constraint firstItem="wOA-FJ-x2T" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="RAo-2m-EZq"/>
                             <constraint firstItem="rXc-bx-YTQ" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" constant="10" id="S3x-Dt-XsP"/>
                             <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="rXc-bx-YTQ" secondAttribute="trailing" constant="10" id="TcK-vW-bHy"/>
+                            <constraint firstItem="bse-m4-fMW" firstAttribute="top" secondItem="wOA-FJ-x2T" secondAttribute="bottom" constant="8" symbolic="YES" id="bWz-o9-HcY"/>
                             <constraint firstItem="F69-dC-4w5" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="e6f-5l-GvE"/>
                             <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="F69-dC-4w5" secondAttribute="trailing" id="eiE-ay-052"/>
                             <constraint firstItem="Tex-oO-ehn" firstAttribute="top" secondItem="A6f-cw-bNc" secondAttribute="top" constant="44" id="jQT-FI-Di8"/>
+                            <constraint firstItem="bse-m4-fMW" firstAttribute="trailing" secondItem="A6f-cw-bNc" secondAttribute="trailing" id="moi-jX-gwu"/>
                             <constraint firstItem="wOA-FJ-x2T" firstAttribute="top" secondItem="rXc-bx-YTQ" secondAttribute="bottom" constant="8" symbolic="YES" id="paT-iD-fIE"/>
                             <constraint firstItem="Tex-oO-ehn" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="qYA-Iq-Hpu"/>
                             <constraint firstItem="wOA-FJ-x2T" firstAttribute="trailing" secondItem="A6f-cw-bNc" secondAttribute="trailing" id="qgN-WN-A1I"/>
                             <constraint firstItem="IMb-dX-OXg" firstAttribute="top" secondItem="Tex-oO-ehn" secondAttribute="bottom" constant="-20" id="tkQ-4F-dXq"/>
+                            <constraint firstItem="bse-m4-fMW" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="vZP-MT-vPe"/>
+                            <constraint firstItem="bse-m4-fMW" firstAttribute="top" secondItem="wOA-FJ-x2T" secondAttribute="bottom" constant="8" symbolic="YES" id="z9Q-0n-ecx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A6f-cw-bNc"/>
                     </view>
@@ -82,6 +93,8 @@
                         <outlet property="datosRutaAlumno" destination="rXc-bx-YTQ" id="w3Z-dY-c5e"/>
                         <outlet property="fechaPV" destination="F69-dC-4w5" id="h2b-Ru-Fpk"/>
                         <outlet property="pickerAlumno" destination="Tex-oO-ehn" id="bya-Rd-7lY"/>
+                        <outlet property="pickerParada" destination="bse-m4-fMW" id="Mv9-h2-2LF"/>
+                        <outlet property="pickerRutaRegreso" destination="wOA-FJ-x2T" id="5IS-Fe-Zyr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoH-Ev-qVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
