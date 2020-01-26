@@ -11,6 +11,8 @@
 		DD4F43EB23C7FCDB0038FD6D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F43EA23C7FCDB0038FD6D /* Message.swift */; };
 		DD4F43ED23C7FD790038FD6D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F43EC23C7FD790038FD6D /* APIRequest.swift */; };
 		DD5524EC23CC0AF200F2161D /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5524EB23CC0AF200F2161D /* customTableViewCell.swift */; };
+		DD5524F323CD6D1300F2161D /* cambiosBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5524F223CD6D1300F2161D /* cambiosBus.swift */; };
+		DD5524F623DA8B0C00F2161D /* CambioBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5524F523DA8B0C00F2161D /* CambioBus.swift */; };
 		DD5F86D723B95489008D1BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F86D623B95489008D1BA7 /* AppDelegate.swift */; };
 		DD5F86D923B95489008D1BA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F86D823B95489008D1BA7 /* SceneDelegate.swift */; };
 		DD5F86DB23B95489008D1BA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F86DA23B95489008D1BA7 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		DD4F43EA23C7FCDB0038FD6D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DD4F43EC23C7FD790038FD6D /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		DD5524EB23CC0AF200F2161D /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
+		DD5524F223CD6D1300F2161D /* cambiosBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cambiosBus.swift; sourceTree = "<group>"; };
+		DD5524F523DA8B0C00F2161D /* CambioBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CambioBus.swift; sourceTree = "<group>"; };
 		DD5F86D323B95489008D1BA7 /* cda2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cda2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5F86D623B95489008D1BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5F86D823B95489008D1BA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD5524ED23CD6C2600F2161D /* ItemsMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DD5524F423DA8ADF00F2161D /* ui */,
+				DD5524F223CD6D1300F2161D /* cambiosBus.swift */,
+			);
+			path = ItemsMenu;
+			sourceTree = "<group>";
+		};
+		DD5524F423DA8ADF00F2161D /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				DD5524F523DA8B0C00F2161D /* CambioBus.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		DD5F86CA23B95489008D1BA7 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +113,7 @@
 		DD5F86D523B95489008D1BA7 /* cda2 */ = {
 			isa = PBXGroup;
 			children = (
+				DD5524ED23CD6C2600F2161D /* ItemsMenu */,
 				DD5F86D623B95489008D1BA7 /* AppDelegate.swift */,
 				DD6FD34323BD20040090D73A /* MenuPrincipal.swift */,
 				DD5F86D823B95489008D1BA7 /* SceneDelegate.swift */,
@@ -216,8 +238,10 @@
 				DD5F86D723B95489008D1BA7 /* AppDelegate.swift in Sources */,
 				DDBD8CC623C836E400E1E9CE /* ErrorResponse.swift in Sources */,
 				DDBD8CC423C8331A00E1E9CE /* User.swift in Sources */,
+				DD5524F323CD6D1300F2161D /* cambiosBus.swift in Sources */,
 				DD4F43EB23C7FCDB0038FD6D /* Message.swift in Sources */,
 				DD5F86D923B95489008D1BA7 /* SceneDelegate.swift in Sources */,
+				DD5524F623DA8B0C00F2161D /* CambioBus.swift in Sources */,
 				DD1CD0E223BBB1790067B969 /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

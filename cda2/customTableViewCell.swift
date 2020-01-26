@@ -16,12 +16,18 @@ class customTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+     
+        let uc = #colorLiteral(red: 0.1498670876, green: 0.2153606415, blue: 0.3738780916, alpha: 1)
+        self.cellView.backgroundColor = selected ? #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) : uc
         // Configure the view for the selected state
+        
     }
+  
 
 }

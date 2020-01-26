@@ -14,8 +14,8 @@ class MenuPrincipal: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
      var imgArr = [UIImage(named: "imag1"), UIImage(named: "imag2"), UIImage(named: "imag3")]
-    let itemMenu = ["bus","cafeteria","uniformes"]
-    let itemLabelMenu = ["Cambio de Bus","Pedido Cafeteria","Pedido Uniformes"]
+    let itemMenu = ["bus","cafeteria","uniformes","CL","eliminar"]
+    let itemLabelMenu = ["Cambio de Bus","Pedido Cafeteria","Pedido Uniformes","Cursos Cocurriculares","Anular Pedido"]
     var timer = Timer()
      var counter = 0
     var token = ""
@@ -33,6 +33,14 @@ class MenuPrincipal: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
+           
+           if segue.identifier == "bus" {
+           let vc = segue.destination as! cambiosBus
+            vc.items = "Cambios de Bus "
+           }
+       }
     
     @objc func changeImage() {
        
@@ -103,17 +111,39 @@ extension MenuPrincipal: UICollectionViewDelegateFlowLayout {
        // cell2.cellView.layer.cornerRadius = cell2.cellView.frame.height / 2
         cell2.itemLabel.text = itemLabelMenu[indexPath.row]
         cell2.itemImage.image = UIImage(named: itemMenu[indexPath.row])
-        
-        cell2.itemImage.layer.cornerRadius = cell2.itemImage.frame.height / 2
+         cell2.itemImage.layer.cornerRadius = cell2.itemImage.frame.height / 2
         return cell2
     }
     
+    
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: "customCell")as! customTableViewCell
-        let cellBackground = UIView()
-              cellBackground.backgroundColor = UIColor(white: 146/255, alpha: 1)
+        
+     //  tableView.deselectRow(at: indexPath, animated: false)
+          let cell2 = tableView.dequeueReusableCell(withIdentifier: "customCell")as! customTableViewCell
+        
+      
+        cell2.backgroundColor = UIColor(red: 7, green: 8, blue: 9, alpha: 0)
+        cell2.itemLabel.text = "Estoy seleccionando"
+        print (indexPath.row)
+        self.performSegue(withIdentifier: "bus", sender: Any?.self)
+        tableView.deselectRow(at: indexPath, animated: true)
 
-        cell2.selectedBackgroundView = cellBackground
+               
+            /*   let alertController = UIAlertController(title: "Hola", message: "is in da house!", preferredStyle: .alert)
+               let action = UIAlertAction(title: "Ok", style: .default) { _ in }
+               alertController.addAction(action)
+               self.present(alertController, animated: true, completion: nil)*/
+      
+    ///    let cellBackground = UIView()
+       //              cellBackground.backgroundColor = UIColor(white: 146/255, alpha: 1)
+      //  currentCell.selectedBackgroundView = cellBackground
+       /* let cell2 = tableView.dequeueReusableCell(withIdentifier: "customCell")as! customTableViewCell
+       
+
+        cell?.selectedBackgroundView = cellBackground
+        return cell!*/
+        
     }
 
 }
