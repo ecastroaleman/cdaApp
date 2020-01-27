@@ -88,12 +88,13 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
         // Do any additional setup after loading the view.
         loadProfile()
         fechaPV.isEnabled = false
+        
         self.fechaPV.minimumDate = Date()
     }
    
     func loadProfile(){
       
-        let accessToken: String? = "UnidSIFPuUuBgByUGTub4b3A2DuHvb60rkAn4GK2pKFw8qsbHcE11a75w-lib296zkXAcgjUfgg0MGxapaSs6OcDalc1qnGo87GSRX7ww5otspdgzqOE0WxWnTYtCMcFiQscpSwpmGgcWSO3ip8SD9iTg8OysyTMirMEwg-hfeqUE5p5Mz0ih_xQxvoTXJ4obPRDoaVzmslMZZzfMprDS-PJWME83KVwCplJXe90qD92J8iKqKpxB5Dtu3SoizeOpCZAEdGeD0oQUh1lHGUadw"
+        let accessToken: String? = "ZFAyzD7OaTCe6Fno36lVbu6XcNB9UcVA22SfQ2g6Jeh1M4swEJ_ZzVnl0TC93Z9IqPla59RpmhuZTA32rfQs-Lo2tMKS9gtmTMA2Usst9907ep9QN8GdQ_in3CrWcs7iigudFi8csftRme4RJKwEKPDnwXFQfUoh2lCh63WIpxdCQ0Pvy1d_YTdnqucnLOw8ftQgZhU-PAoAn2Ocx5VKHF1B04t8s_OEHUyLbeH1OQBAERbC086TE_YLF7SwXEef8lGCuh6ViRZdblIDEfK5sw"
        // let accessToken: String? = KeychainWrapper.standard.string(forKey: "accessToken")
        // let userId: String? = KeychainWrapper.standard.string(forKey: "userId")
         let myUrl = URL(string: "http://ecastro-001-site1.atempurl.com/api/cda/getCambioBus")
@@ -128,6 +129,8 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
                     self.arrayIndice.append(i)
                 }
                 
+                self.llenarRutas()
+                /*
                 var conteo = 0
                 var conteov = 0
               //  print("------------ Llenado -------------")
@@ -135,6 +138,14 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
                // print("Total Inicial Rutas normal -> \(self.arrayRutas.count)")
                // print("Total Inicial Rutas Viernes -> \(self.arrayRutasV.count)")
                 for x in 0...self.product.rutas!.count-1 {
+                    
+                    if (self.product.rutas![x].Ruta.contains("CARRO")){
+                        conteov += 1
+                        self.arrayRutasV.append(self.product.rutas![x].Ruta!)
+                        self.totalElementosRutaV += 1
+                        self.arrayIndiceRutaV.append(conteov)
+                       
+                    }
                     
                     if (self.product.rutas![x].Ruta.contains("Viernes")){
                         conteov += 1
@@ -145,7 +156,6 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
                     }else {
                         conteo += 1
                          self.totalElementosRuta += 1
-                      //   print("Llenando rutas normal -> \(self.product.rutas![x].Ruta!)")
                         self.arrayRutas.append(self.product.rutas![x].Ruta!)
                         self.arrayIndiceRuta.append(conteo)
                     }
@@ -159,7 +169,7 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
                         
                     }*/
                
-                }
+                }*/
              //   print("Total Rutas normal -> \(self.arrayRutas.count)")
              //   print("Total Rutas Viernes -> \(self.arrayRutasV.count)")
               //   print("------- Fin llenado --------")
@@ -212,6 +222,40 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
         self.present(alertController, animated: true, completion:nil)
     }
     */
+    
+    func llenarRutas() -> Void {
+        
+        var conteo = 0
+                      var conteov = 0
+                    //  print("------------ Llenado -------------")
+                     // print("Total elementos Ruta -> \(self.product.rutas.count)")
+                     // print("Total Inicial Rutas normal -> \(self.arrayRutas.count)")
+                     // print("Total Inicial Rutas Viernes -> \(self.arrayRutasV.count)")
+                      for x in 0...self.product.rutas!.count-1 {
+                          
+                          if (self.product.rutas![x].Ruta.contains("CARRO")){
+                              conteov += 1
+                              self.arrayRutasV.append(self.product.rutas![x].Ruta!)
+                              self.totalElementosRutaV += 1
+                              self.arrayIndiceRutaV.append(conteov)
+                             
+                          }
+                          
+                          if (self.product.rutas![x].Ruta.contains("Viernes")){
+                              conteov += 1
+                            //  print("Llenando rutas viernes -> \(self.product.rutas![x].Ruta!)")
+                               self.arrayRutasV.append(self.product.rutas![x].Ruta!)
+                              self.totalElementosRutaV += 1
+                              self.arrayIndiceRutaV.append(conteov)
+                          }else {
+                              conteo += 1
+                               self.totalElementosRuta += 1
+                              self.arrayRutas.append(self.product.rutas![x].Ruta!)
+                              self.arrayIndiceRuta.append(conteo)
+                          }
+        }
+    }//fin llenar Rutas
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
            return 1
        }
@@ -256,12 +300,42 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
         if (pickerView.tag == 1) {
             filaSeleccionada = row
             datosRutaAlumno.text =  ""
+            
+            
         if (arrayIndice[row].description == "-1") {
             print("No debe buscar nada")
              fechaPV.isEnabled = false
-            datosAlumno.text = ""
+             datosAlumno.text = ""
+            
+            //Borrar Rutas y Paradas
+            arrayParadas.removeAll()
+            arrayParadas = ["-Seleccione uno-"]
+            totalElementosParada = 1
+            arrayRutas.removeAll()
+            arrayRutas = ["-Seleccione uno-"]
+            totalElementosRuta = 1
+            arrayRutasV.removeAll()
+            arrayRutasV = ["-Seleccione uno-"]
+            totalElementosRutaV = 1
+            pickerRutaRegreso.reloadAllComponents()
+            pickerParada.reloadAllComponents()
+           
+            
           
         }else {
+            
+            print("Debe llenar Rutas . . . .")
+            arrayRutas.removeAll()
+            arrayRutas = ["-Seleccione uno-"]
+            totalElementosRuta = 1
+            arrayRutasV.removeAll()
+            arrayRutasV = ["-Seleccione uno-"]
+            totalElementosRutaV = 1
+            llenarRutas()
+            pickerRutaRegreso.reloadAllComponents()
+            pickerParada.reloadAllComponents()
+            self.pickerRutaRegreso?.selectRow(0, inComponent: 0, animated: true)
+            self.pickerParada?.selectRow(0, inComponent: 0, animated: true)
             fechaPV.isEnabled = true
             datosAlumno.text = "Codigo Alumno: \(self.product.alumno![arrayIndice[row]].codigo ?? "0") Carrera: \( self.product.alumno![arrayIndice[row]].carrera ?? "") Grado: \(self.product.alumno![arrayIndice[row]].grado ?? "") Seccion:  \(self.product.alumno![arrayIndice[row]].seccion ?? "")"
           //  codigo carrera grado seccion
@@ -270,27 +344,43 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
         }else if (pickerView.tag == 2) {
             print ("Codigo para Rutas....")
             var buscandoRuta = ""
+              arrayParadas.removeAll()
+              arrayParadas = ["-Seleccione uno-"]
+              totalElementosParada = 1
+            
+            if (esViernes){buscandoRuta = arrayRutasV[row].description}
+                           else {buscandoRuta = arrayRutas[row].description}
+            
+            if (buscandoRuta == "-Seleccione uno-" ){
+                print("No debo buscar nada....")
+            }else {
+            
             for r in 0...product.rutas.count-1 {
                 
-                if (esViernes){buscandoRuta = arrayRutasV[row].description}
-                else {buscandoRuta = arrayRutas[row].description}
+               
                 
+                print("Debo buscar direcciones para -> \(buscandoRuta)")
                 if (self.product.rutas[r].Ruta == buscandoRuta){
                     print("Encontrò las direcciones de la Ruta ")
-                for p in 0...self.product.rutas![r].direcciones.count-1 {
+                  
+                            for p in 0...self.product.rutas![r].direcciones.count-1 {
                     
                     
                                        print("Para la ruta \(self.product.rutas![r].Ruta!) hay \(self.product.rutas![r].direcciones.count) direcciones ")
-                                    //   print("Codigo: \(self.product.rutas![r].direcciones![p].codDireccion!)")
-                                     //  print("Direccion: \(self.product.rutas![r].direcciones![p].Direccion!)")
-                    arrayParadas.append(self.product.rutas![r].direcciones![p].Direccion!)
-                                      
+                                   print("Direccion encontrada -> \(self.product.rutas![r].direcciones![p].Direccion!)")
+                                arrayParadas.append(self.product.rutas![r].direcciones![p].Direccion!)
+                                
                                        
                 }
                     print("Total Direcciones Almacenadas -> \(self.product.rutas![r].direcciones.count+1)")
                     totalElementosParada = self.product.rutas![r].direcciones.count+1
+                  break;
                 }
+             
             }
+            }
+            print("Total  elementos en Parada -> \(totalElementosParada)")
+            print("Elementos - > \(arrayParadas)")
             pickerParada.reloadAllComponents()
             
             
@@ -317,6 +407,9 @@ class CambioBus: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource
               datosRutaAlumno.text = "La Ruta actual del alumno es: \(self.product.alumno![arrayIndice[filaSeleccionada]].ruta2 ?? ""). En la direccion: \(self.product.alumno![arrayIndice[filaSeleccionada]].direccion2 ?? "") el alumno \(bs) baja solo. "
         }
         self.pickerRutaRegreso.reloadAllComponents()
+         self.pickerRutaRegreso?.selectRow(0, inComponent: 0, animated: true)
+        pickerParada.reloadAllComponents()
+        self.pickerParada?.selectRow(0, inComponent: 0, animated: true)
     }
     
 

@@ -23,7 +23,7 @@
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMb-dX-OXg">
-                                <rect key="frame" x="10" y="188" width="394" height="50"/>
+                                <rect key="frame" x="20" y="188" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="O4t-HC-zgM"/>
                                 </constraints>
@@ -40,8 +40,8 @@
                                     <action selector="cambioFecha:" destination="SCH-9g-Wdn" eventType="valueChanged" id="368-lM-vck"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXc-bx-YTQ">
-                                <rect key="frame" x="10" y="331" width="394" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXc-bx-YTQ">
+                                <rect key="frame" x="20" y="331" width="374" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ti7-L8-tJ6"/>
                                 </constraints>
@@ -50,40 +50,59 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOA-FJ-x2T">
-                                <rect key="frame" x="0.0" y="399" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="381" width="414" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="q9c-QH-Yhh"/>
                                 </constraints>
                             </pickerView>
                             <pickerView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="bse-m4-fMW">
-                                <rect key="frame" x="0.0" y="527" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="491" width="414" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Olf-OW-DkW"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="oZV-1g-6yb"/>
                                 </constraints>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baja Solo : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="619-pu-3Xa">
+                                <rect key="frame" x="20" y="616" width="85" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="JWb-oU-hg8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dn5-1v-j6C">
+                                <rect key="frame" x="205" y="616" width="51" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="BrB-LJ-wfZ"/>
+                                </constraints>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="IMb-dX-OXg" secondAttribute="trailing" constant="10" id="0BJ-IO-BVr"/>
+                            <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="IMb-dX-OXg" secondAttribute="trailing" constant="20" id="0BJ-IO-BVr"/>
                             <constraint firstItem="rXc-bx-YTQ" firstAttribute="top" secondItem="F69-dC-4w5" secondAttribute="bottom" constant="-15" id="7Zn-5s-CAe"/>
-                            <constraint firstItem="IMb-dX-OXg" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" constant="10" id="Ekg-dc-XJo"/>
+                            <constraint firstItem="619-pu-3Xa" firstAttribute="top" secondItem="bse-m4-fMW" secondAttribute="bottom" constant="5" id="AUf-oR-IUI"/>
+                            <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="dn5-1v-j6C" secondAttribute="trailing" constant="160" id="ChW-21-IY2"/>
+                            <constraint firstItem="619-pu-3Xa" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" constant="20" id="D1y-GL-jTw"/>
+                            <constraint firstItem="IMb-dX-OXg" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" constant="20" id="Ekg-dc-XJo"/>
                             <constraint firstItem="F69-dC-4w5" firstAttribute="top" secondItem="IMb-dX-OXg" secondAttribute="bottom" constant="-2" id="OJI-KZ-Df0"/>
+                            <constraint firstItem="dn5-1v-j6C" firstAttribute="top" secondItem="bse-m4-fMW" secondAttribute="bottom" constant="5" id="QbV-tt-w0N"/>
                             <constraint firstItem="Tex-oO-ehn" firstAttribute="trailing" secondItem="A6f-cw-bNc" secondAttribute="trailing" id="Qui-MR-5Ro"/>
                             <constraint firstItem="wOA-FJ-x2T" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="RAo-2m-EZq"/>
-                            <constraint firstItem="rXc-bx-YTQ" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" constant="10" id="S3x-Dt-XsP"/>
-                            <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="rXc-bx-YTQ" secondAttribute="trailing" constant="10" id="TcK-vW-bHy"/>
-                            <constraint firstItem="bse-m4-fMW" firstAttribute="top" secondItem="wOA-FJ-x2T" secondAttribute="bottom" constant="8" symbolic="YES" id="bWz-o9-HcY"/>
+                            <constraint firstItem="rXc-bx-YTQ" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" constant="20" id="S3x-Dt-XsP"/>
+                            <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="rXc-bx-YTQ" secondAttribute="trailing" constant="20" id="TcK-vW-bHy"/>
+                            <constraint firstItem="bse-m4-fMW" firstAttribute="top" secondItem="wOA-FJ-x2T" secondAttribute="bottom" constant="-10" id="bWz-o9-HcY"/>
                             <constraint firstItem="F69-dC-4w5" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="e6f-5l-GvE"/>
                             <constraint firstItem="A6f-cw-bNc" firstAttribute="trailing" secondItem="F69-dC-4w5" secondAttribute="trailing" id="eiE-ay-052"/>
                             <constraint firstItem="Tex-oO-ehn" firstAttribute="top" secondItem="A6f-cw-bNc" secondAttribute="top" constant="44" id="jQT-FI-Di8"/>
+                            <constraint firstItem="dn5-1v-j6C" firstAttribute="leading" secondItem="619-pu-3Xa" secondAttribute="trailing" constant="100" id="k33-NR-zXh"/>
                             <constraint firstItem="bse-m4-fMW" firstAttribute="trailing" secondItem="A6f-cw-bNc" secondAttribute="trailing" id="moi-jX-gwu"/>
-                            <constraint firstItem="wOA-FJ-x2T" firstAttribute="top" secondItem="rXc-bx-YTQ" secondAttribute="bottom" constant="8" symbolic="YES" id="paT-iD-fIE"/>
+                            <constraint firstItem="wOA-FJ-x2T" firstAttribute="top" secondItem="rXc-bx-YTQ" secondAttribute="bottom" constant="-10" id="paT-iD-fIE"/>
                             <constraint firstItem="Tex-oO-ehn" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="qYA-Iq-Hpu"/>
                             <constraint firstItem="wOA-FJ-x2T" firstAttribute="trailing" secondItem="A6f-cw-bNc" secondAttribute="trailing" id="qgN-WN-A1I"/>
                             <constraint firstItem="IMb-dX-OXg" firstAttribute="top" secondItem="Tex-oO-ehn" secondAttribute="bottom" constant="-20" id="tkQ-4F-dXq"/>
                             <constraint firstItem="bse-m4-fMW" firstAttribute="leading" secondItem="A6f-cw-bNc" secondAttribute="leading" id="vZP-MT-vPe"/>
-                            <constraint firstItem="bse-m4-fMW" firstAttribute="top" secondItem="wOA-FJ-x2T" secondAttribute="bottom" constant="8" symbolic="YES" id="z9Q-0n-ecx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A6f-cw-bNc"/>
                     </view>
